@@ -1,6 +1,6 @@
 import { Column, OneToOne, ManyToOne, Entity, PrimaryGeneratedColumn, JoinColumn } from 'typeorm';
 import { ProyectoEntity } from '../../proyecto/proyecto.entity/proyecto.entity';
-import { ProfesorEntity } from 'src/profesor/profesor.entity/profesor.entity';
+import { ProfesorEntity } from '../../profesor/profesor.entity/profesor.entity';
 
 @Entity()
 export class PropuestaEntity {

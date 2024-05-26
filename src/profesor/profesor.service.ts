@@ -4,7 +4,6 @@ import { Repository } from 'typeorm';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 import { ProfesorEntity } from './profesor.entity/profesor.entity';
 
-
 @Injectable()
 export class ProfesorService {
 
@@ -31,7 +30,7 @@ export class ProfesorService {
     async create(profesor: ProfesorEntity): Promise<ProfesorEntity> {
 
         if(profesor.grupoInvestigacion !== 'TICSW' && profesor.grupoInvestigacion !== 'IMAGINE' && profesor.grupoInvestigacion !== 'COMIT'){
-            throw new BusinessLogicException("El grupo de investigacion debe ser uno de estos: TICSW,IMAGINE o COMIT ", BusinessError.BAD_REQUEST);
+            throw new BusinessLogicException("El grupo de investigacion debe ser uno de estos: TICSW,IMAGINE o COMIT", BusinessError.BAD_REQUEST);
         }
 
         return await this.profesorRepository.save(profesor);
@@ -50,7 +49,7 @@ export class ProfesorService {
             throw new BusinessLogicException("The profesor with the given id was not found", BusinessError.NOT_FOUND);
         }
 
-        for (let i = 0; i < persistedProfesor.propuestas.length; i++) {
+        for (let i = 0; i < persistedProfesor.propuestas?.length; i++) {
             if(persistedProfesor.propuestas[i].proyecto){
                 throw new BusinessLogicException("No se puede borrar un profesor si tiene una propuesta con algun proyecto", BusinessError.BAD_REQUEST);
             }
@@ -63,10 +62,10 @@ export class ProfesorService {
 
         const persistedProfesor: ProfesorEntity = await this.profesorRepository.findOne({where:{cedula:cedula}});
         if(!persistedProfesor) {
-            throw new BusinessLogicException("The profesor with the given id was not found", BusinessError.NOT_FOUND);
+            throw new BusinessLogicException("The profesor with the given cedula was not found", BusinessError.NOT_FOUND);
         }
 
-        for (let i = 0; i < persistedProfesor.propuestas.length; i++) {
+        for (let i = 0; i < persistedProfesor.propuestas?.length; i++) {
             if(persistedProfesor.propuestas[i].proyecto){
                 throw new BusinessLogicException("No se puede borrar un profesor si tiene una propuesta con algun proyecto", BusinessError.BAD_REQUEST);
             }

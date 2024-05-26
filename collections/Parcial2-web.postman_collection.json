@@ -1,0 +1,1382 @@
+{
+	"info": {
+		"_postman_id": "8b2aa5b0-7723-4783-a2d4-1667cc3036dc",
+		"name": "Parcial2-web",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25530529"
+	},
+	"item": [
+		{
+			"name": "Profesor",
+			"item": [
+				{
+					"name": "createProfesor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.collectionVariables.set(\"profesor_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \"TICSW\",\n    \"cedula\": 130123452,\n    \"numExtension\": 124\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profesores",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createProfesor",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \"TICSW\",\n    \"cedula\": 130123452,\n    \"numExtension\": 124\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profesores",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87-v4PTpX6ipVgKP3ZYslv6VTia8dA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:01:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \"TICSW\",\n    \"cedula\": 130123452,\n    \"numExtension\": 124,\n    \"id\": \"0fcc63b9-8523-44e7-b817-9548d19c1c37\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createBadProfesor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \" grupo malo\",\n    \"cedula\": 130123452,\n    \"numExtension\": 124\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profesores",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createBadProfesor",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \" grupo malo\",\n    \"cedula\": 130123452,\n    \"numExtension\": 124\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profesores",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-6NuFA7+oeUTa3koht/NdywuUdDQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:02:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"El grupo de investigacion debe ser uno de estos: TICSW,IMAGINE o COMIT\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getOneProfesor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profesores/{{profesor_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores",
+								"{{profesor_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getOneProfesor",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profesores/{{profesor_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores",
+										"{{profesor_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "151"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"97-lu0qDJxYRHz27DhQknq/AHM2nWs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:09:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"835b9f1f-d861-4841-a320-548ded9cd1d7\",\n    \"cedula\": 130123452,\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \"TICSW\",\n    \"numExtension\": 124,\n    \"propuestas\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "getNotExistentProfesor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profesores/{{bad_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores",
+								"{{bad_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProfesor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profesores/{{profesor_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores",
+								"{{profesor_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBadProfesor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profesores/{{bad_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores",
+								"{{bad_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByCedulaProfesor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profesores/{{cedula}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores",
+								"{{cedula}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByCedulaBadProfesor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profesores/{{bad_cedula}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores",
+								"{{bad_cedula}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estudiante",
+			"item": [
+				{
+					"name": "createEstudiante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.collectionVariables.set(\"estudiante_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"codigo\": \"2018212305\",\n    \"creditos\": 124\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/estudiantes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createEstudiante",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"codigo\": \"2018212305\",\n    \"creditos\": 124\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/estudiantes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"estudiantes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"69-CeY71uiCfbdpcRoAWAafDkz4FE0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:02:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nombre\": \"Juan Andres\",\n    \"codigo\": \"2018212305\",\n    \"creditos\": 124,\n    \"id\": \"8c13bf4b-f33d-4994-8239-2866f1a1c803\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createEstudianteBad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"codigo\": \"2\",\n    \"creditos\": 124\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/estudiantes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"estudiantes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createEstudianteBad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"codigo\": \"2\",\n    \"creditos\": 124\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/estudiantes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"estudiantes"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-3/qVJBg5VLEdxcLVcA4yYQ7C30A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:02:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"El codigo del estudiante debe tener 10 caracteres\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getOneEstudiante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/estudiantes/{{estudiante_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"estudiantes",
+								"{{estudiante_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneEstudianteBad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/estudiantes/{{bad_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"estudiantes",
+								"{{bad_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proyecto",
+			"item": [
+				{
+					"name": "createProyecto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.collectionVariables.set(\"proyecto_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://www.youtube.com/watch?v=6G1F1KVeiNA\",\n    \"fechaFin\": 100,\n    \"fechaInicio\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/proyectos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createProyecto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.youtube.com/watch?v=6G1F1KVeiNA\",\n    \"fechaFin\": 100,\n    \"fechaInicio\": 30\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/proyectos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"proyectos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"81-mZ6PuUVj+nQleIiH6SLSsAaK6vc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:02:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"url\": \"https://www.youtube.com/watch?v=6G1F1KVeiNA\",\n    \"fechaFin\": 100,\n    \"fechaInicio\": 30,\n    \"id\": \"635f8cbb-9715-45f8-8ea6-26c44bc376dc\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createProyectoBad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://www.youtube.com/watch?v=6G1F1KVeiNA\",\n    \"fechaFin\": 1,\n    \"fechaInicio\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/proyectos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createProyectoBad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.youtube.com/watch?v=6G1F1KVeiNA\",\n    \"fechaFin\": 1,\n    \"fechaInicio\": 30\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/proyectos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"proyectos"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"67-9lW28OYToAzAKhJ+nXFVWgCPTew\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:02:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"la fecha de inicio no puede ser posterior a la fecha de fin del proyecto\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Propuesta",
+			"item": [
+				{
+					"name": "createPropuesta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.collectionVariables.set(\"propuesta_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\":\"titulo\",\n    \"descripcion\": \"descripcion\",\n    \"palabraClave\": \"palabraClave\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/propuestas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"propuestas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createPropuesta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\":\"titulo\",\n    \"descripcion\": \"descripcion\",\n    \"palabraClave\": \"palabraClave\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/propuestas",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"propuestas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "121"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"79-g8cHu+ikUGF9R1KqY2f09nuT4PY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:02:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"titulo\": \"titulo\",\n    \"descripcion\": \"descripcion\",\n    \"palabraClave\": \"palabraClave\",\n    \"id\": \"d34115ce-09d2-40c9-a64e-51e1888932a7\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createPropuestaBad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\":\" \",\n    \"descripcion\": \"descripcion\",\n    \"palabraClave\": \"palabraClave\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/propuestas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"propuestas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createPropuestaBad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"titulo\":\" \",\n    \"descripcion\": \"descripcion\",\n    \"palabraClave\": \"palabraClave\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/propuestas",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"propuestas"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-4F2/FCBsD2eigcu9T9Cvx/Fvd5Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:02:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"El titulo de la propuesta no puede ser vacio\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllPropuestas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/propuestas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"propuestas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOnePropuesta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/propuestas/{{propuesta_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"propuestas",
+								"{{propuesta_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOnePropuestaBad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/propuestas/{{bad_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"propuestas",
+								"{{bad_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePropuesta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/propuestas/{{propuesta_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"propuestas",
+								"{{propuesta_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePropuestaBad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/propuestas/{{bad_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"propuestas",
+								"{{bad_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "bad_id",
+			"value": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+			"type": "string"
+		},
+		{
+			"key": "profesor_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "estudiante_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "proyecto_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "propuesta_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "cedula",
+			"value": "1234567891",
+			"type": "string"
+		},
+		{
+			"key": "bad_cedula",
+			"value": "-1",
+			"type": "string"
+		}
+	]
+}
