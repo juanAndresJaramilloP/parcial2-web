@@ -1,0 +1,704 @@
+{
+	"id": "e2716ea4-2c23-4607-af19-794b079b89e7",
+	"name": "Parcial2-web",
+	"timestamp": "2024-05-26T16:10:49.916Z",
+	"collection_id": "25530529-8b2aa5b0-7723-4783-a2d4-1667cc3036dc",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 22,
+	"delay": "7",
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-05-26T16:10:49.209Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "24ea57b7-077c-4370-8c90-978c583cc353",
+			"name": "createProfesor",
+			"url": "http://localhost:3000/api/v1/profesores",
+			"time": 15,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "b6945835-6926-4eba-bc02-d9b0ea60d80f",
+			"name": "createBadProfesor",
+			"url": "http://localhost:3000/api/v1/profesores",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "35628b92-ff58-4406-80ce-df720eb34263",
+			"name": "getOneProfesor",
+			"url": "http://localhost:3000/api/v1/profesores/fca1a185-8c1d-480a-a86d-d9d5cbcecaf0",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "2ed6ec87-6bfa-4330-ab19-2109136e81fd",
+			"name": "getNotExistentProfesor",
+			"url": "http://localhost:3000/api/v1/profesores/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			]
+		},
+		{
+			"id": "6120a599-29e7-47a0-9ed7-8b02ee79ad93",
+			"name": "deleteProfesor",
+			"url": "http://localhost:3000/api/v1/profesores/fca1a185-8c1d-480a-a86d-d9d5cbcecaf0",
+			"time": 10,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "add41270-8051-4671-89c3-2bd029a3966f",
+			"name": "deleteBadProfesor",
+			"url": "http://localhost:3000/api/v1/profesores/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			]
+		},
+		{
+			"id": "4ea3d4ef-82ac-4f38-af37-d13f466a954b",
+			"name": "createProfesor Copy",
+			"url": "http://localhost:3000/api/v1/profesores",
+			"time": 5,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "c524892f-5b94-4fbb-a156-e58f0a272774",
+			"name": "deleteByCedulaProfesor",
+			"url": "http://localhost:3000/api/v1/profesores/cedula/130123452",
+			"time": 5,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "b0df7d99-30a5-4542-9884-27f355534440",
+			"name": "deleteByCedulaBadProfesor",
+			"url": "http://localhost:3000/api/v1/profesores/cedula/-1",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			]
+		},
+		{
+			"id": "91b80b50-6b2f-43ea-9d78-38a9414a68c1",
+			"name": "createEstudiante",
+			"url": "http://localhost:3000/api/v1/estudiantes",
+			"time": 4,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "ac633caf-a79a-4afd-98c4-848068e5c8b1",
+			"name": "createEstudianteBad",
+			"url": "http://localhost:3000/api/v1/estudiantes",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "28653765-5b31-4eaf-ab7b-f78cb1e9573a",
+			"name": "getOneEstudiante",
+			"url": "http://localhost:3000/api/v1/estudiantes/7df3d83b-2756-4f54-9654-91144d068c50",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "95a8eb32-0516-4c8d-a9be-f55a1282d131",
+			"name": "getOneEstudianteBad",
+			"url": "http://localhost:3000/api/v1/estudiantes/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+			"time": 4,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			]
+		},
+		{
+			"id": "e9c41ad9-9718-4793-a607-d3e05a44f188",
+			"name": "createProyecto",
+			"url": "http://localhost:3000/api/v1/proyectos",
+			"time": 4,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "8e2eabc8-19e7-4e4a-bbf3-9e1e2491b2cc",
+			"name": "createProyectoBad",
+			"url": "http://localhost:3000/api/v1/proyectos",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "c2cad89f-5f6e-426f-b417-c9c400150c7e",
+			"name": "createPropuesta",
+			"url": "http://localhost:3000/api/v1/propuestas",
+			"time": 4,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "d2b25f1d-6144-452d-a20e-ad13477f2d13",
+			"name": "createPropuestaBad",
+			"url": "http://localhost:3000/api/v1/propuestas",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "d5562098-8e3d-4325-aab2-9f3b4317ce76",
+			"name": "getAllPropuestas",
+			"url": "http://localhost:3000/api/v1/propuestas",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f44f27a7-55ad-46b3-95fb-d14cf93502bb",
+			"name": "getOnePropuesta",
+			"url": "http://localhost:3000/api/v1/propuestas/6352f965-cbf0-4067-8dc0-09258ee14997",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f97811f9-4f8a-4d2e-9670-63c71ccef8e7",
+			"name": "getOnePropuestaBad",
+			"url": "http://localhost:3000/api/v1/propuestas/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			]
+		},
+		{
+			"id": "c2483d33-4281-48cc-9a75-eec470dba910",
+			"name": "deletePropuesta",
+			"url": "http://localhost:3000/api/v1/propuestas/6352f965-cbf0-4067-8dc0-09258ee14997",
+			"time": 12,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "990f1c85-e2a9-4b88-98ee-03f0fd09efaa",
+			"name": "deletePropuestaBad",
+			"url": "http://localhost:3000/api/v1/propuestas/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 106,
+	"collection": {
+		"requests": [
+			{
+				"id": "24ea57b7-077c-4370-8c90-978c583cc353",
+				"method": "POST"
+			},
+			{
+				"id": "b6945835-6926-4eba-bc02-d9b0ea60d80f",
+				"method": "POST"
+			},
+			{
+				"id": "35628b92-ff58-4406-80ce-df720eb34263",
+				"method": "GET"
+			},
+			{
+				"id": "2ed6ec87-6bfa-4330-ab19-2109136e81fd",
+				"method": "GET"
+			},
+			{
+				"id": "6120a599-29e7-47a0-9ed7-8b02ee79ad93",
+				"method": "DELETE"
+			},
+			{
+				"id": "add41270-8051-4671-89c3-2bd029a3966f",
+				"method": "DELETE"
+			},
+			{
+				"id": "4ea3d4ef-82ac-4f38-af37-d13f466a954b",
+				"method": "POST"
+			},
+			{
+				"id": "c524892f-5b94-4fbb-a156-e58f0a272774",
+				"method": "DELETE"
+			},
+			{
+				"id": "b0df7d99-30a5-4542-9884-27f355534440",
+				"method": "DELETE"
+			},
+			{
+				"id": "91b80b50-6b2f-43ea-9d78-38a9414a68c1",
+				"method": "POST"
+			},
+			{
+				"id": "ac633caf-a79a-4afd-98c4-848068e5c8b1",
+				"method": "POST"
+			},
+			{
+				"id": "28653765-5b31-4eaf-ab7b-f78cb1e9573a",
+				"method": "GET"
+			},
+			{
+				"id": "95a8eb32-0516-4c8d-a9be-f55a1282d131",
+				"method": "GET"
+			},
+			{
+				"id": "e9c41ad9-9718-4793-a607-d3e05a44f188",
+				"method": "POST"
+			},
+			{
+				"id": "8e2eabc8-19e7-4e4a-bbf3-9e1e2491b2cc",
+				"method": "POST"
+			},
+			{
+				"id": "c2cad89f-5f6e-426f-b417-c9c400150c7e",
+				"method": "POST"
+			},
+			{
+				"id": "d2b25f1d-6144-452d-a20e-ad13477f2d13",
+				"method": "POST"
+			},
+			{
+				"id": "d5562098-8e3d-4325-aab2-9f3b4317ce76",
+				"method": "GET"
+			},
+			{
+				"id": "f44f27a7-55ad-46b3-95fb-d14cf93502bb",
+				"method": "GET"
+			},
+			{
+				"id": "f97811f9-4f8a-4d2e-9670-63c71ccef8e7",
+				"method": "GET"
+			},
+			{
+				"id": "c2483d33-4281-48cc-9a75-eec470dba910",
+				"method": "DELETE"
+			},
+			{
+				"id": "990f1c85-e2a9-4b88-98ee-03f0fd09efaa",
+				"method": "DELETE"
+			}
+		]
+	}
+}

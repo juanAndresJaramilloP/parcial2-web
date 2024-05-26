@@ -221,8 +221,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"   pm.response.to.have.status(201);",
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -329,7 +329,60 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "getNotExistentProfesor",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profesores/{{bad_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores",
+										"{{bad_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-6zRe8SNSIGgIrePOKp9C54WxN3s\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 15:52:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The profesor with the given id was not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "deleteProfesor",
@@ -361,7 +414,48 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "deleteProfesor",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profesores/{{profesor_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores",
+										"{{profesor_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 15:53:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "deleteBadProfesor",
@@ -393,7 +487,165 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "deleteBadProfesor",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profesores/{{bad_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores",
+										"{{bad_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-6zRe8SNSIGgIrePOKp9C54WxN3s\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 15:53:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The profesor with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "createProfesor Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.collectionVariables.set(\"profesor_id\", data.id);",
+									"pm.collectionVariables.set(\"cedula\", data.cedula);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \"TICSW\",\n    \"cedula\": 130123452,\n    \"numExtension\": 124\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profesores",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createProfesor",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \"TICSW\",\n    \"cedula\": 130123452,\n    \"numExtension\": 124\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profesores",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87-v4PTpX6ipVgKP3ZYslv6VTia8dA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 03:01:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nombre\": \"Juan Andres\",\n    \"grupoInvestigacion\": \"TICSW\",\n    \"cedula\": 130123452,\n    \"numExtension\": 124,\n    \"id\": \"0fcc63b9-8523-44e7-b817-9548d19c1c37\"\n}"
+						}
+					]
 				},
 				{
 					"name": "deleteByCedulaProfesor",
@@ -415,17 +667,60 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/profesores/{{cedula}}",
+							"raw": "{{base_url}}/profesores/cedula/{{cedula}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"profesores",
+								"cedula",
 								"{{cedula}}"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "deleteByCedulaProfesor",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profesores/cedula/{{cedula}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores",
+										"cedula",
+										"{{cedula}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 15:59:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "deleteByCedulaBadProfesor",
@@ -434,8 +729,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"   pm.response.to.have.status(400);",
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -447,17 +742,72 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/profesores/{{bad_cedula}}",
+							"raw": "{{base_url}}/profesores/cedula/{{bad_cedula}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"profesores",
+								"cedula",
 								"{{bad_cedula}}"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "deleteByCedulaBadProfesor",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profesores/cedula/{{bad_cedula}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profesores",
+										"cedula",
+										"{{bad_cedula}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f-UxzJ4t2cP/cJbU99PS4FV5xHRwo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 16:00:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The profesor with the given cedula was not found\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -676,8 +1026,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"   pm.response.to.have.status(201);",
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -699,7 +1049,60 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "getOneEstudiante",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/estudiantes/{{estudiante_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"estudiantes",
+										"{{estudiante_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "121"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"79-q5GN4/2ZLm+2rZBrdhWVsJEJWhs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 16:01:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"6c08624e-55b0-4a8a-b298-789d8b9e8abc\",\n    \"nombre\": \"Juan Andres\",\n    \"codigo\": \"2018212305\",\n    \"creditos\": 124,\n    \"proyecto\": null\n}"
+						}
+					]
 				},
 				{
 					"name": "getOneEstudianteBad",
@@ -708,8 +1111,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"   pm.response.to.have.status(400);",
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -731,7 +1134,60 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "getOneEstudianteBad",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/estudiantes/{{bad_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"estudiantes",
+										"{{bad_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-MiDZn+poKT4zWohOE230JEpfZNA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 16:02:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The estudiante with the given id was not found\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -1160,8 +1616,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"   pm.response.to.have.status(201);",
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1182,7 +1638,59 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "getAllPropuestas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/propuestas",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"propuestas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "155"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9b-MqsAYxQcx4XlSq0nxXn3W9cAIXw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 16:04:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"bfafb2fe-a562-417a-a21f-d176cc6a8599\",\n        \"titulo\": \"titulo\",\n        \"descripcion\": \"descripcion\",\n        \"palabraClave\": \"palabraClave\",\n        \"proyecto\": null,\n        \"profesor\": null\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "getOnePropuesta",
@@ -1191,8 +1699,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"   pm.response.to.have.status(201);",
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1214,7 +1722,60 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "getOnePropuesta",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/propuestas/{{propuesta_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"propuestas",
+										"{{propuesta_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"99-6lvwue6Qy8HfVbWI3ML03hJRrTo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 16:04:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"bfafb2fe-a562-417a-a21f-d176cc6a8599\",\n    \"titulo\": \"titulo\",\n    \"descripcion\": \"descripcion\",\n    \"palabraClave\": \"palabraClave\",\n    \"proyecto\": null,\n    \"profesor\": null\n}"
+						}
+					]
 				},
 				{
 					"name": "getOnePropuestaBad",
@@ -1223,8 +1784,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"   pm.response.to.have.status(400);",
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1246,7 +1807,60 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "getOnePropuestaBad",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/propuestas/{{bad_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"propuestas",
+										"{{bad_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-8aMTdU8H6SbgqhWya5JqLDyr1p4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 16:05:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The propuesta with the given id was not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "deletePropuesta",
@@ -1278,7 +1892,48 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "deletePropuesta",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/propuestas/{{propuesta_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"propuestas",
+										"{{propuesta_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 16:07:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "deletePropuestaBad",
@@ -1287,8 +1942,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 400\", function () {",
-									"   pm.response.to.have.status(400);",
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1310,7 +1965,60 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "deletePropuestaBad",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/propuestas/{{bad_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"propuestas",
+										"{{bad_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-8aMTdU8H6SbgqhWya5JqLDyr1p4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 May 2024 16:07:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The propuesta with the given id was not found\"\n}"
+						}
+					]
 				}
 			]
 		}
@@ -1370,7 +2078,7 @@
 		},
 		{
 			"key": "cedula",
-			"value": "1234567891",
+			"value": "",
 			"type": "string"
 		},
 		{
